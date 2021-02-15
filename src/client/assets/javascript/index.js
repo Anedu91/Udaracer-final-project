@@ -76,35 +76,37 @@ async function delay(ms) {
 async function handleCreateRace() {
   // TODO - Get player_id and track_id from the store
   const { player_id, track_id } = store;
+  try {
+    // render starting UI
+    renderAt("#race", renderRaceStartView(track_id));
 
-  // render starting UI
-  renderAt("#race", renderRaceStartView(track_id));
-
-  // const race = TODO - invoke the API call to create the race, then save the result
-  const race = await createRace(player_id, track_id);
-  // TODO - update the store with the race id
-  store.race_id = race.ID - 1;
-  // The race has been created, now start the countdown
-  // TODO - call the async function runCountdown
-  await runCountdown();
-  // TODO - call the async function startRace
-  // startRace.then((race) => console.log(race));
-  console.log(race);
-  startRace(store.race_id).then((race) => {
-    runRace(store.race_id);
+    // const race = TODO - invoke the API call to create the race, then save the result
+    const race = await createRace(player_id, track_id);
+    // TODO - update the store with the race id
+    store.race_id = parseInt(race.ID - 1);
+    // The race has been created, now start the countdown
+    // TODO - call the async function runCountdown
+    await runCountdown();
+    // TODO - call the async function startRace
+    // startRace.then((race) => console.log(race));
     console.log(race);
-  });
-  // TODO - call the async function runRace
+
+    await startRace(store.race_id);
+    // TODO - call the async function runRace
+  } catch (err) {
+    console.log("Error with handleCreateRace::", err);
+  }
 }
 
 function runRace(raceID) {
   return new Promise((resolve) => {
     // TODO - use Javascript's built in setInterval method to get race info every 500ms
-    /* 
+    /*     
 		TODO - if the race info status property is "in-progress", update the leaderboard by calling:
 
 		renderAt('#leaderBoard', raceProgress(res.positions))
-	*/
+  */
+    const interval = setInterval(() => {}, 500);
     /* 
 		TODO - if the race info status property is "finished", run the following:
 
@@ -380,10 +382,7 @@ function startRace(id) {
     method: "POST",
     ...defaultFetchOpts(),
   })
-    .then((res) => {
-      console.log(res);
-      res.json();
-    })
+    .then((res) => res.json())
     .catch((err) => console.log("Problem with startRace request::", err));
 }
 
