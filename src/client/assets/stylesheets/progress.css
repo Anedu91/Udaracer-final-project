@@ -2,36 +2,100 @@
 
 /* -------------------  MOBILE  --------------------- */
 header {
-  background-image: url('https://via.placeholder.com/1150');
+  background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url(../images/progress.jpg);
+  height: 70vh;
+}
+.progress__header {
+  position: relative;
 }
 
 main#two-columns {
-    margin: 50px 0;
-    display: flex;
+  margin: 50px 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 main#two-columns section {
-    max-width: 50vw;
+  max-width: 100%;
+  width: 100%;
 }
-
+#leaderBoard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+section#accelerate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 section#accelerate button {
-    height: 300px;
-    width: 300px;
-    margin: 30px auto;
-    border-radius: 180%;
-    background-color: green;
-    border-color: rgb(14, 166, 6);
-    cursor: pointer;
+  height: 200px;
+  width: 200px;
+  margin: 30px auto;
+  color: white;
+  background-color: #333;
+  cursor: pointer;
+}
+section#accelerate button:focus {
+  background: #444;
 }
 
 #big-numbers {
-    font-weight: bolder;
-    font-size: 70px;
+  font-weight: bolder;
+  font-size: 70px;
+}
+.new-race {
+  background: #333;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  padding: 1rem 1.5rem;
+}
+.progress {
+  width: 100%;
+  background: #eee;
+  margin-bottom: 0.5rem;
+}
+#myBar {
+  position: relative;
+  height: 1.6rem;
+  background-color: #333;
+}
+#myBar:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -1.5rem;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  background-size: 1.25rem;
+  background-image: url(../images/motorcycle-solid.svg);
+  background-position: center;
+
+  background-repeat: no-repeat;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
 }
 
 /* -------------------  TABLET  --------------------- */
 @media (min-width: 768px) {
-
+  main#two-columns {
+    flex-wrap: nowrap;
+  }
+  main#two-columns section {
+    max-width: 50vw;
+  }
 }
 
 /* -------------------  DESKTOP  -------------------- */

@@ -9,7 +9,7 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }
 
@@ -21,20 +21,29 @@ body {
 }
 
 header {
-  background-image: url('https://via.placeholder.com/1150');
+  padding: 1rem;
+  background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url(../images/home.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+main {
+  padding: 0 1rem;
 }
 
 h1 {
   color: white;
   text-shadow: 3px 2px hsl(0, 2%, 51%);
-  font-size: 70px;
+  font-size: 40px;
   text-transform: uppercase;
 }
 
@@ -65,12 +74,12 @@ p {
 }
 
 .button {
-  width: 250px;
+  width: 100%;
   padding: 20px 10px;
-  background-color: green;
+  background-color: #333;
   cursor: pointer;
   border-radius: 4px;
-  border-color: 1px solid green;
+  border-color: 1px solid white;
   color: white;
   font-size: 20px;
   text-transform: uppercase;
@@ -91,14 +100,25 @@ section {
 }
 
 footer {
-  height: 200px;
+  height: 50px;
   background-color: black;
 }
-
+.progress {
+  width: 100%;
+  background: grey;
+}
+#myBar {
+  width: 1%;
+  height: 10px;
+  background-color: red;
+}
 /* -------------------  TABLET  --------------------- */
 @media (min-width: 768px) {
   header {
-    height: 100vh;
+    height: 80vh;
+  }
+  h1 {
+    font-size: 70px;
   }
 }
 
@@ -106,7 +126,7 @@ footer {
 
 @media (min-width: 1224px) {
   header {
-    height: 700px;
+    height: 50vh;
   }
 }
 
@@ -114,6 +134,6 @@ footer {
 
 @media (min-width: 1824px) {
   header {
-    height: 700px;
+    height: 50vh;
   }
 }
